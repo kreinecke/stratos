@@ -41,9 +41,9 @@ source ./git-merge-subpath.sh
 echo "Checking out monocular target branch: $MONOCULAR_BRANCH from $MONOCULAR_FORK into temporary merge branch: temp-merge-branch" >&1
 
 ##Change to top level of repo
-#repo_root=$(git rev-parse --show-toplevel)
-#echo "Moving to repo top level: $repo_root" >&1
-#pushd "$repo_root" >&/dev/null || exit
+repo_root=$(git rev-parse --show-toplevel)
+echo "Moving to repo top level: $repo_root" >&1
+pushd "$repo_root" >&/dev/null || exit
 
 ##Checkout the monocular feature branch onto a temporary merge branch
 git fetch "$MONOCULAR_FORK"
