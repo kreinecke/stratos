@@ -10,6 +10,7 @@ usage() {
 	echo    "    -b MONOCULAR_BRANCH       The upstream branch to pull from" >&1
 	echo    "    -r MONOCULAR_REF  The upsream ref to pull from (e.g. tag or SHA1)" >&1
 	echo    "    -h usage" >&1
+	exit 0
 }
 
 while getopts f:b:r:h arg 
@@ -26,13 +27,11 @@ done
 if [ -z "$MONOCULAR_FORK" ]; then
 	echo "Must specify a monocular fork to pull from" >&2
 	usage
-	exit 0
 fi
 
 if [ -n "$MONOCULAR_BRANCH" ] && [ -n "$MONOCULAR_REF" ] || [ -z "$MONOCULAR_BRANCH" ] && [ -z "$MONOCULAR_REF" ]; then
 	echo "Must specify either a monocular branch or ref to pull from" >&2
 	usage
-	exit 1
 fi
 
 echo "Monocular fork: $MONOCULAR_FORK" >&1
