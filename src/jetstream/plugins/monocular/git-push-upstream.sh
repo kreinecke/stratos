@@ -51,7 +51,7 @@ git checkout -b temp-merge-branch "$MONOCULAR_FORK"/"$MONOCULAR_BRANCH" || exit
 
 ##Merge changes from our monocular subtree in Stratos v2-master to our temp-merge-branch
 
-echo "Merging Stratos branch $STRATOS_BRANCH at src/jetstream/plugins/monocular into temporary merge branch" >&1
+echo "Merging Stratos branch $STRATOS_BRANCH at src/jetstream/plugins/monocular into temp-merge-branch" >&1
 
 git-merge-subpath --squash origin/"$STRATOS_BRANCH" src/jetstream/plugins/monocular cmd
 if [ $? -ne 0 ]; then
@@ -70,7 +70,7 @@ else
         else
 	     echo "Cleaning up temporary branches" >&1
              ##Cleanup: remove our temporary merge branch
-             git checkout v2-master && git branch -d temp-merge-branch
+             git checkout "$STRATOS_BRANCH" && git branch -d temp-merge-branch
        fi
 fi
 
