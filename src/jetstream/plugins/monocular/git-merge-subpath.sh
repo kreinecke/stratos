@@ -50,6 +50,8 @@ git-merge-subpath() {
 
     if (( $? == 1 )); then
         echo "Uh-oh! Try cleaning up with |git reset --merge|."
+	echo "You may be able to finish the merge manually then run the following (do not modify the commit message):"
+        echo "git commit -em \"Merge $SOURCE_COMMIT:$SOURCE_PREFIX/ to $DEST_PREFIX/ ${FUNCNAME[0]}: $SOURCE_SHA1 $SOURCE_PREFIX $DEST_PREFIX\""
 	return 1
     else
         git commit -em "Merge $SOURCE_COMMIT:$SOURCE_PREFIX/ to $DEST_PREFIX/

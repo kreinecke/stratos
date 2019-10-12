@@ -55,7 +55,9 @@ echo "Merging Stratos branch $STRATOS_BRANCH at src/jetstream/plugins/monocular 
 
 git-merge-subpath --squash origin/"$STRATOS_BRANCH" src/jetstream/plugins/monocular cmd
 if [ $? -ne 0 ]; then
-	echo "Something went wrong with the merge. Make sure to clean up." >&2
+	echo "Unsuccessful." >&2
+	popd >& /dev/null || exit
+	exit 1
 else
 
 	echo "Pushing changes to target branch: $MONOCULAR_BRANCH on $MONOCULAR_FORK" >&1
