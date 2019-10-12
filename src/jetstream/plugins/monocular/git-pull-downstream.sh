@@ -7,8 +7,8 @@ usage() {
 	echo    "  options:" >&1
 	printf  "    -f MONOCULAR_FORK         The upstream fork/repo to pull from\n" >&1
 	printf  "    ONE OF EITHER -m or -s must be set\n" >&1
-	echo    "    -m MONOCULAR_BRANCH       The upstream branch to pull from" >&1
-	echo    "    -s MONOCULAR_REF4t  The upsream ref to pull from (e.g. tag or SHA1)" >&1
+	echo    "    -b MONOCULAR_BRANCH       The upstream branch to pull from" >&1
+	echo    "    -r MONOCULAR_REF  The upsream ref to pull from (e.g. tag or SHA1)" >&1
 	echo    "    -h usage" >&1
 }
 
