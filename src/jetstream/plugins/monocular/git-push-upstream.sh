@@ -63,16 +63,15 @@ else
 
 	echo "Pushing changes to target branch: $MONOCULAR_BRANCH on $MONOCULAR_FORK" >&1
 
-  ##Push the temporary merge branch back to the monocular feature branch
-  git push "$MONOCULAR_FORK" HEAD:"$MONOCULAR_BRANCH"
-  if [ $? -ne 0 ]; then
-	  echo "Failed to push to branch: $MONOCULAR_BRANCH on $MONOCULAR_FORK." >&2
-  else
-	  echo "Cleaning up temporary branches" >&1
-
-    ##Cleanup: remove our temporary merge branch
-    git checkout v2-master && git branch -d temp-merge-branch
-  fi
+        ##Push the temporary merge branch back to the monocular feature branch
+        git push "$MONOCULAR_FORK" HEAD:"$MONOCULAR_BRANCH"
+        if [ $? -ne 0 ]; then
+	     echo "Failed to push to branch: $MONOCULAR_BRANCH on $MONOCULAR_FORK." >&2
+        else
+	     echo "Cleaning up temporary branches" >&1
+             ##Cleanup: remove our temporary merge branch
+             git checkout v2-master && git branch -d temp-merge-branch
+       fi
 fi
 
 popd >& /dev/null || exit
