@@ -21,7 +21,7 @@ git-merge-subpath() {
     local SOURCE_COMMIT="$1" SOURCE_PREFIX="${2%/}" DEST_PREFIX="${3%/}"
 
     local SOURCE_SHA1
-    SOURCE_SHA1=$(git rev-parse --verify "$SOURCE_COMMIT^{commit}") || echo "$SOURCE_COMMIT is not a valid source ref." && return 1
+    SOURCE_SHA1=$(git rev-parse --verify "$SOURCE_COMMIT^{commit}")
 
     local OLD_SHA1
     local GIT_ROOT=$(git rev-parse --show-toplevel)
